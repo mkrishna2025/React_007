@@ -1,0 +1,324 @@
+// Day 1 - Start
+
+Chrome => Right Click and select inspect
+		  Select Console Tab
+		  Select undock into seperate window for full window
+
+Variable
+	Holds the values
+	
+// Syntax for Creating variable
+var variableName = defaultValue;
+
+var username = 'krishna';
+var age = 25;
+var isMale = true;
+
+// Viewing the values inside variableName
+1. Displaying in Alert Box => alert(username) => Displays user username in popup.
+2. Print to Console => console.log(username) => prints username to console.
+
+var city;
+alert(city); => displays undefined in popup. ie defaultValue is undefined
+
+Operators
+= Assignment
+== Equal => Compares values
+=== Compares Both value and type
+? Conditional
+|| 
+
+var a = 10;
+var b = 20;
+
+var c = a + b;
+alert(c) => displays 30 in popup
+
+var d = '40';
+var e = c + d;
+alert(e) => displays 3040 in popup => concatenation occurs as one of the value type is string.
+
+Conditional Opertor
+var variableName = condition ? value1 : value2;
+if condition is true
+	value1 is copied to variable
+else 
+	value2 is copied to variable
+	
+var z = 10 > 5 ? 10 : 20
+As condition is satified, 10 is copied to z.
+
+Or Operator => Handling Undefined
+var a;
+var b = a || 40;
+alert(b) => displays 40 in popup
+
+var l, m, n;
+var z = l || m || n || 40;
+alert(z) => displays 40 in popup
+
+m = 20;
+z = l || m || n || 40;
+alert(z) => displays 20 in popup
+
+Functions
+	Block of code
+	Uses => reusability, code reduction
+// Syntax - Approach 1
+var functionName = function(arguments){
+	// block of code
+	
+	// return value if needed
+}
+
+var welcome = function(){
+	console.log('Welcome to Demo');
+}
+
+// Executing the function
+functionName(parameters);
+
+var add = function(x, y){
+	var z = x + y;
+	return z;
+}
+
+add(10, 20) => returns 30
+
+x and y are called arguments of function
+10 and 20 are called parameters to function
+
+var sub = function(x, y){
+	console.log('x value is ' + x);
+	console.log('y value is ' + y);
+	var z = x - y;
+	return z;
+}
+
+1 + undefined => NaN
+1 - undefined => NaN
+1 * undefined => NaN
+1 / undefined => NaN
+
+sub(10) => NaN not a number
+
+// Handling undefined
+var sub = function(x, y){
+	x = x || 0;
+	y = y || 0;
+	console.log('x value is ' + x);
+	console.log('y value is ' + y);
+	var z = x - y;
+	return z;
+}
+
+// Approach 2 for Creating function
+function functionName(arguments) {
+	
+}
+
+function mul(x, y){
+	x = x || 1;
+	y = y || 1;
+	return x * y;
+}
+
+// Approach 3 for Creating function. Arrow Functions
+var functionName = arguments => {}
+
+var add = (x, y) => {
+	return x + y;
+}
+
+var sub = (x, y) => x - y;
+
+
+var welcome = user => {
+	user = user || 'Guest'
+	console.log('Welcome to Demo, ' + user);
+}
+
+var welcome = user => console.log('Welcome to Demo, ' + user);
+welcome() => Prints Welcome to Demo, Guest
+
+Helper Functions => functions that exists/supports in browser
+typeOf => returns value type
+parseInt => Converts string to number
+parseFloat => Converts string to float
+
+Types
+	Number
+	String
+	Boolean
+	Undefined
+
+1 === parseInt("1") returns true
+
+// Self Executing Functions 
+	Function that executes itself.
+	Adv: Memory allocated for function is cleared automatically once the function is executed
+	
+// Syntax
+(function functionName(arguments){})(parameters);
+
+(function welcome() {
+	console.log('Welcome to Demo');
+})();
+
+(function addition(x, y){
+	return x + y;
+})(10, 20);
+
+( (x, y) => x - y )(10, 20);
+
+// Day 1 - End
+
+// Day 2 - Start
+
+Object
+	Key Value Pair
+	Key - String - Access using . and []
+		  Numeric - Access using []
+	Value - String
+			Boolean
+			Numeric
+			Function
+	
+// Sample Object
+var prakash = {
+	name: 'Prakash Kumar',
+	age: 25,
+	isMale: true,
+	city: 'Hyderabad'
+}
+
+// Accessing the values from Object
+prakash.name
+prakash['name']
+
+console.log('Welcome to Demo, ' + prakash.name + ', ' + prakash.age + ', ' + prakash['city'])
+
+// Key can be numeric
+var obj = {
+	1: 'a',
+	2: 'b'
+}
+
+// can use _ symbol with in the string key
+var neha = {
+	first_name: 'Neha',
+	last_name: 'Singh'
+}
+
+// Real Time Scenarios
+1. using Object as input param
+
+// with out object as input
+function welcome(name, age, city){
+	console.log(name + age + city);
+}
+
+// with object as input
+function welcome2(options){
+	console.log(options.name + options['age'] + options.city);
+}
+
+// Handling Undefined
+function welcome3(options){
+	options.name = options.name || '';
+	options.age = options.age || '';
+	options.city = options.city || '';
+	console.log(options.name + options['age'] + options.city);
+}
+
+// Setting Default Values
+function welcome4(options){
+	options = options || {};
+	options.name = options.name || 'Guest';
+	options.age = options.age || '25';
+	options.city = options.city || 'Hyderabad';
+	console.log(options.name + options['age'] + options.city);
+}
+
+// 2. Use Case - Remove Collision of Methods
+
+// Lib1
+function add(x, y) {}
+
+// Lib2
+function add(x, y, z) {}
+
+var Lib1 = {
+	add: function(x, y){
+		return x + y;
+	}
+}
+
+var Lib2 = {
+	add: function(x, y, z){
+		return x + y + z;
+	}
+}
+
+Lib1.add(10, 20)
+Lib2.add(10, 20, 30)
+
+var Calculator = {
+	add: function(x, y){
+		return x + y;
+	},
+	sub: function(x, y){
+		return x - y;
+	}
+}
+Calculator.mul = function(x, y){
+	return x * y;
+}
+Calculator['div'] = function(x, y){
+	return x / y;
+}
+
+var student = {
+	name: 'Sundeep',
+	age: 10,
+	class: 5
+}
+
+var APIRequest = JSON.stringify(student);
+var APIResponse = JSON.stringify(student);
+
+var obj2 = JSON.parse(APIResponse);
+
+JSON.stringify => converts object to string
+JSON.parse => Converts string to object
+
+var prakash = {
+	name: 'Prakash Kumar',
+	age: 20
+}
+prakash.city = 'Hyderabad';
+
+// Deleting Key value pair
+delete object.key
+delete object['key']
+
+prakash.address = {
+	Line1: '1/2/3',
+	Line2: 'Kukatpally'
+}
+
+
+// Day 2 - End
+
+
+
+
+
+
+
+
+
+
+
+
+
