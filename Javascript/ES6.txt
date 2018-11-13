@@ -1,0 +1,38 @@
+Babel - Plugin to convert Latest ES6 standards to old standards
+
+https://babeljs.io/
+
+// Creating Clas
+Before ES6
+var Calculator = function(){
+	return {}
+} 
+ES6
+class Calculator {
+}
+
+// Class with 2 public methods
+var Calculator = function(){
+	return {
+		add: function(x, y) {
+			return x + y;
+		},
+		sub: function(x, y){
+			return x - y;
+		}
+	}
+}
+ES6
+class Calculator {
+	add(x, y) {
+		return x + y;
+	}
+	sub(x, y) {
+		return x - y;
+	}
+}
+
+
+
+
+

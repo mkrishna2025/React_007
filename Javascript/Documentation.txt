@@ -479,7 +479,7 @@ Advantages -
 OOPS Concepts
 	Class - Structure - Animal, Car
 	Object - Actual item - Lion, Alto
-	Access Specifiers - Public, Private
+	Access Specifiers - Public, Private, Global
 	Constructors
 	Inheritance - Accessing Parent Class Features
 
@@ -490,6 +490,7 @@ Class - Fields - Holds the values - name, age, city
 // Syntax
 var className = function(){
 	// private variable/method
+	// global variable/method
 	return {
 		// public Variable/Method
 	}
@@ -629,6 +630,163 @@ LOWER Case =>
 	student, person
 	
 // Day 4
+
+// Day 5
+
+// Class - Person
+Public Fields - Name, Age
+Private Fields - SSN
+Public Methods - GetAddress
+Private Methods - GetSSN
+
+var Person = function(options) {
+	options = options || {};
+	var ssn = options.ssn || '';
+	var getSSN = function() {
+	
+	};
+	
+	return {
+		name: options.name || '',
+		age: options.age || '',
+		getAddress: function(){
+		}
+	};
+}
+var prakash = new Person({ ssn: 123, name: 'Prakash Kumar', age: 30 })
+
+var Student = function(){
+	return {
+		name: '',
+		age: ''
+	}
+}
+var neha = new Student();
+var deepak = new Student();
+
+Teacher
+name - public
+id - private
+school - global
+
+var Teacher = function(){
+	var id = '';
+	school = '';
+	return {
+		name: ''
+	}
+}
+
+
+// If Person is class and obj is object of it, age is a field
+var Person = function(){
+}
+
+var obj = new Person()
+
+if age is public, obj.age
+if age is private, obj.age is undefined
+if age is global, age 
+
+var Calculator = function(options) {
+	
+	// private variable
+	var token = options.token;
+	
+	// private function
+	var log = function(value) {
+		console.log(' Result is ' + value);
+	}
+	
+	// global variable
+	pi = 3.14;
+	
+	// global function
+	getFramework = function() {
+		console.log('Calculator');
+	}
+	
+	return {
+		// public variable
+		version: 1.0,
+		// public functions
+		add: function(x, y) {
+			var z = x + y;
+			log(z);
+			return z;
+		},
+		sub: function(x, y) {
+			var z = x - y;
+			log(z);
+			return z;
+		},
+		isExpired: function() {
+		
+		}
+	}
+}
+
+var prakash = {
+	firstName: 'Prakash',
+	lastName: 'Kumar',
+	getFullName: function(){
+		return this.firstName + ' ' + this.lastName;
+	}
+}
+
+var deepti = {
+	city: 'HYD',
+	getCity: function(){
+    	return this.city;
+	},
+	getFatherCity: function(){
+    	return this.father.getCity()
+	},
+	father: {
+		city: 'DELHI',
+		getCity: function(){
+    		return this.city;    
+		}
+	}
+}
+
+deepti.getFatherCity() => 'DELHI'
+
+
+// Creating a class - Approach 2
+// Syntax
+var className = function(){
+	// private variable/method
+	// global variable/method
+	
+	// public Variable/Method
+	this.
+}
+
+var Person5 = function(options){
+	options = options || {};
+	options.name = options.name || 'Guest';
+	options.age = options.age || '0';
+	options.cc = options.cc || 'xxxxx';
+	
+	this.name = options.name;
+	this.age = options.age;
+	this.cc = options.cc;
+}
+
+var Calculator = function(){
+	this.add = function(x, y){
+		return x + y;
+	}
+	this.sub = function(x, y){
+		return x - y;
+	}
+}
+
+
+
+
+
 
 
 
