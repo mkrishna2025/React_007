@@ -447,6 +447,189 @@ var Angular = {
 
 // Day 3 - End
 
+// Day 4 - Start
+
+var calculator = {
+	add: function(x, y){
+		return x + y;
+	},
+	sub: function(x, y){
+		return x - y;
+	}
+}
+
+var prakash = {
+	name: 'Prakash Kumar',
+	age: 20,
+	cc: 123456
+}
+
+var neha = {
+	name: 'Neha Singh',
+	age: 25,
+	cc: 567890
+}
+
+// Oops -- Object Oriented Programming
+
+Advantages - 
+	Security
+	Remove Duplicate Code 
+	
+OOPS Concepts
+	Class - Structure - Animal, Car
+	Object - Actual item - Lion, Alto
+	Access Specifiers - Public, Private
+	Constructors
+	Inheritance - Accessing Parent Class Features
+
+Class - Fields - Holds the values - name, age, city
+		Methods - Holds the functions - add, sub
+
+// Creating a class - Approach 1
+// Syntax
+var className = function(){
+	// private variable/method
+	return {
+		// public Variable/Method
+	}
+}
+// Creating Object
+var instance = new className();
+
+
+var Person = function(){
+	return {
+		name: '',
+		age: '',
+		cc: ''
+	}
+}
+var prakash = new Person();
+var neha = new Person();
+
+// using Constructors
+var Person2 = function(input_name, input_age, input_cc){
+	return {
+		name: input_name,
+		age: input_age,
+		cc: input_cc
+	}
+}
+var prakash = new Person2('Prakash Kumar', 20, 123456)
+var neha = new Person2('Neha Singh', 25, 567890)
+
+
+// using Object as input
+var Person3 = function(options){
+	return {
+		name: options.name,
+		age: options.age,
+		cc: options.cc
+	}
+}
+var prakash = new Person3({ name: 'Prakash Kumar', age: 20, cc: 123456 })
+var neha = new Person3({ name: 'Neha Singh', age: 25, cc: 567890})
+
+// Handling Undefined
+var Person4 = function(options){
+	options = options || {};
+	options.name = options.name || '';
+	options.age = options.age || '';
+	options.cc = options.cc || '';
+	
+	return {
+		name: options.name,
+		age: options.age,
+		cc: options.cc
+	}
+}
+
+// Setting Default Values
+var Person5 = function(options){
+	options = options || {};
+	options.name = options.name || 'Guest';
+	options.age = options.age || '0';
+	options.cc = options.cc || 'xxxxx';
+	
+	return {
+		name: options.name,
+		age: options.age,
+		cc: options.cc
+	}
+}
+
+var Calculator = function(){
+	return {
+		add: function(x, y){
+			return x + y;
+		},
+		sub: function(x, y){
+			return x - y;
+		}
+	}
+}
+
+var c1 = new Calculator();
+c1.add(10, 20)
+c1.sub(10, 20);
+
+var c2 = new GST();
+
+c2.calculateAmount({ revenue: 1000, profit: 200 })
+c2.displayNetProfit();
+
+var GST = function(){
+	return {
+		calculateAmount: function(options) {},
+		displayNetProfit: function()
+	}
+}
+
+// Security
+var nilesh = {
+	name: 'Nilesh Reddy',
+	cc: 123456
+}
+
+var Student = function(options){
+	var cc = options.cc;
+	var print = function(result) {
+		console.log(result);
+	}
+	
+	return {
+		name: options.name,
+		printCC: function(){
+			print(cc.toString().replace('123', 'xxx'));
+		}
+	}
+}
+
+Similar Terms
+field, variable, member, property, attribute
+function, method, api, Interfaces
+
+Naming Conventions
+Camel Case => 
+	first letter will be in lower case, for every word joining higher case letter is used
+	var helloWorld, scientificCalculator 
+	Scenarios - creating functions
+Variable Case => 
+    first letter will be in upper case, for every word joining higher case letter is used
+	Student, Person
+	Scenarios - creating class
+Higher Case =>
+	all letters will be in higher case
+	STATES, COUNTRIES 
+	Scenarios - creating constants or static data
+LOWER Case =>
+	all letters will be in lower case
+	Scenarios - creating variables
+	student, person
+	
+// Day 4
+
 
 
 
