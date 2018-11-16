@@ -1,0 +1,40 @@
+UI Components
+	button
+	textbox
+	checkbox
+	label
+	radiobox
+	table
+
+Tags
+	html
+	head => scripts, css
+	body => Actual ui components
+	
+script => header => script is loaded before ui components
+	=> body => script is loaded after ui components are loaded in browser
+	
+events => capturable things
+		
+tag => <input type='button' value='Submit' />
+type and value are attributes
+
+tag => <label>UserName</label>
+UserName is called innerhtml or innernode
+
+SPA => Single Page Application
+	create empty div in body, inject all elements dynamically.
+	
+React
+Angular
+ExtJS
+VUE
+React Native
+React VR
+
+	
+Debugging => checking the flow of javascript
+
+adding html string => += ''
+adding html component => .appendChild(component)
+
