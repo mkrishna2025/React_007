@@ -32,6 +32,133 @@ class Calculator {
 	}
 }
 
+// Public Fields
+// Approach 1
+var Student = function(options){
+	return {
+		name: options.name || '',
+		age:options.age || ''
+	}
+}
+// Approach 2
+var Student = function(options){
+	this.name = options.name || '';
+	this.age = options.age || '';
+}
+// ES6
+class Student {
+	constructor(options){
+		this.name = options.name || '';
+		this.age = options.age || '';
+	}
+}
+
+// Class - Teacher - 
+Takes firstname, lastname, category, age as input
+Create Public Variables - fullName, category, age
+Create Public Functions - PrintTeacherInfo
+
+class Teacher {
+	constructor(options){
+		this.fullName = options.firstname + options.lastname; 
+		this.category = options.category;
+		this.age = options.age;
+	}
+	printTeacherInfo(){
+		console.log(this.fullName + ', ' + this.category + ', ' + this.age);
+	}
+}
+
+var archana = new Teacher({ age: 30, category: 'Maths', firstname: 'Archana', lastname: 'Kumari'});
+
+
+// With Undefined Handling
+class Teacher2 {
+	constructor(options){
+		options = options || {};
+		options.firstname = options.firstname || 'Guest';
+		options.lastname = options.lastname || '';
+		options.category = options.category || 'General';
+		options.age = options.age || 0;
+		this.fullName = options.firstname + options.lastname; 
+		this.category = options.category;
+		this.age = options.age;
+	}
+	printTeacherInfo(){
+		console.log(this.fullName + ', ' + this.category + ', ' + this.age);
+	}
+}
+
+// ES6 doesnt support private feature
+
+const x = 10;
+x = 20; => Fails as constant cant be updated
+
+class SavingsAccount {
+	getAccountInfo(){
+	}
+	processSavingsAccount(){
+	}
+}
+
+class CurrentAccount {
+	getAccountInfo(){
+	}
+	processCurrentAccount(){
+	}
+}
+
+
+// Using Inheritance
+class Account {
+	getAccountInfo(){
+	}
+}
+class SavingsAccount extends Account{
+	processSavingsAccount(){
+	}
+}
+
+class CurrentAccount extends Account{
+	processCurrentAccount(){
+	}
+}
+
+class Father {
+	getGender(){
+		return "M";
+	}
+	getName(){
+		return "Krishna";
+	}
+}
+class Son extends Father{
+	getName(){
+		return "Surya";
+	}
+	getCity(){
+		return "HYD"
+	}
+}
+
+var s1 = new Son();
+console.log('Welcome to ' + s1.getName() + ', ' + s1.getGender() + ', ' + s1.getCity()); 
+
+Person age field
+if age is public => p.age
+if age is private => p.age cant be accessed
+if age is global => age
+if age is const => age but cant update
+if age is block level variable => var age; 
+
+Static => Accesing methods directly from classname and not from objects/instances
+class Test2 {
+	static getBrowserVersion(){
+    	return "1.0";
+	}
+}
+
+Test2.getBrowserVersion();
 
 
 
