@@ -1,0 +1,133 @@
+React
+	Original DOM
+	Virtual DOM
+	
+Restaurants
+	Krutunga
+	Paradise
+	Bawarchi
+	
+Befault => 
+	data = [
+		{ id: 1, label: 'Krutunga' },
+		{ id: 2, label: 'Paradise' },
+		{ id: 3, label: 'Bawarchi' }
+	]
+
+Original DOM
+	<div>Krutunga</div>
+	<div>Paradise</div>
+	<div>Bawarchi</div>
+	
+Virtual DOM => replica/clone of original DOM
+	<div>Krutunga</div>
+	<div>Paradise</div>
+	<div>Bawarchi</div>
+
+Step 1:
+On click of refresh icon
+data = [
+		{ id: 1, label: 'Krutunga' },
+		{ id: 2, label: 'Paradise' },
+		{ id: 3, label: 'Bawarchi' },
+		{ id: 4, label: 'Ohris' }
+	]
+data changed => state changed
+Virtual DOM is recreated.
+Virtual DOM =>
+	<div>Krutunga</div>
+	<div>Paradise</div>
+	<div>Bawarchi</div>
+	<div>Ohris</div>
+	
+Starts comparison with original DOM
+	<div>Krutunga</div>				<div>Krutunga</div>
+	<div>Paradise</div>				<div>Paradise</div>
+	<div>Bawarchi</div>				<div>Bawarchi</div>
+						Injected <= <div>Ohris</div>
+
+Step 2: Paradise is deleted
+data = [
+		{ id: 1, label: 'Krutunga' },
+		{ id: 3, label: 'Bawarchi' },
+		{ id: 4, label: 'Ohris' }
+	]
+Virtual DOM is recreated.
+Virtual DOM =>
+	<div>Krutunga</div>
+	<div>Bawarchi</div>
+	<div>Ohris</div>
+Starts comparison with original DOM
+	<div>Krutunga</div>				<div>Krutunga</div>
+	<div>Paradise</div>	Deleted  <=
+	<div>Bawarchi</div>				<div>Bawarchi</div>
+	<div>Ohris</div>				<div>Ohris</div>	
+
+Step 2: Krutunga is updated to Kritunga
+data = [
+		{ id: 1, label: 'Kritunga' },
+		{ id: 3, label: 'Bawarchi' },
+		{ id: 4, label: 'Ohris' }
+	]
+Virtual DOM is recreated.
+Virtual DOM =>
+	<div>Kritunga</div>
+	<div>Bawarchi</div>
+	<div>Ohris</div>
+Starts comparison with original DOM
+	<div>Krutunga</div>	Updated  <=	<div>Kritunga</div>
+	<div>Paradise</div>	Deleted  <=
+	<div>Bawarchi</div>				<div>Bawarchi</div>
+						Injected <= <div>Ohris</div>
+						
+In comparison,
+	if it finds new node in virtual DOM => injected to Original DOM
+	if it finds any missing node in virtual DOM => removed in Original DOM
+	if it finds any updated node in virtual DOM => updates node in Original DOM
+
+Libraries to Import
+	React - React.createElement(type, attributes, innerhtml)
+	ReactDOM - ReactDOM.render(what to render, where to render);
+	
+// button
+ReactDOM.render(React.createElement('button'), document.getElementById('root'))
+
+ReactDOM.render(React.createElement('div'), document.getElementById('app'))
+React.createElement('div', { id: 'div1', items: [ {}, {}]}, 'Welcome to Demo');
+
+React.createElement(type of element, attributes, innerhtml)
+	
+div having label and button with title Welcome
+
+React.createElement('div', 
+	{ id: 'div1', items: 
+		[ 
+			React.createElement('label'...), 
+			React.createElement('textbox', ....)
+		]
+	}, 
+	'Welcome');
+	
+<div>
+	<input type='label' value='UserName' />
+	<input type='text'/>
+</div>
+
+Process
+	<input type='label' value='UserName' />
+	will be converted to 
+	React.createElement('label', { }, 'UserName');
+	will generate html element
+	
+JSX vs HTML
+HTML Elements => directly rendered
+JSX Elements => converted to React.createElement and then html elements are created in javascript dynamically
+
+JSX - Compiled
+HTML - Not Compiled
+
+TestComponent({ title: 'Welcome to React Demo'})
+<TestComponent title='Welcome to React Demo' />
+
+Important Points
+	Use curly braces for variables with in jsx elements.

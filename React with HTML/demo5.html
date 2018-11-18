@@ -1,0 +1,26 @@
+<html>
+<head>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+		//ReactDOM.render(React.createElement('div', { id: 'div1'}, 'Welcome to Demo'), document.getElementById('root'));
+		
+		//ReactDOM.render(<div>Welcome to Demo 2</div>, document.getElementById('root'));
+		
+		//var element = <div>Welcome to Demo 2</div>;
+		
+		var TestComponent = function(props){
+			return <div>{props.title}</div>;
+		};
+		
+		/*ReactDOM.render(TestComponent({ title: 'Welcome to React Demo'}), document.getElementById('root'));*/
+		
+		ReactDOM.render(<TestComponent title="Welcome to React Demo"/>, document.getElementById('root'));
+	</script>
+</body>
+</html>
