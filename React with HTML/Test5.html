@@ -1,0 +1,50 @@
+<html>
+<head>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+		
+		function Welcome(props){
+			var courses = ['React', 'Node', 'React Native', 'Javascript'];
+			
+			var liElements = [];
+			for(var course of courses) {
+				liElements.push(<li>{course}</li>);
+			}
+			
+			return <div>
+				{props.title}
+				<ul>
+					{liElements}
+				</ul>
+			</div>;
+		}
+		
+		function Welcome2(props){
+			var courses = ['React', 'Node', 'React Native', 'Javascript'];
+			
+			var liElements = [];
+			for(var course of courses) {
+				liElements.push(<li>{course}</li>);
+			}
+			
+			return <div>
+				{props.title}
+				<br/>
+				<br/>
+				Search <input type='text' />
+				<ul>
+					{liElements}
+				</ul>
+			</div>;
+		}
+	
+		ReactDOM.render(<Welcome2 title="Welcome to Courses"/>, document.getElementById('root'));
+	</script>
+</body>
+</html>

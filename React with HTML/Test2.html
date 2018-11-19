@@ -1,0 +1,39 @@
+<html>
+<head>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+		
+		function Login(props){
+			return <div>
+				<h3>Using CSS to style an HTML Form</h3>
+				<div>
+				  <form action="">
+					<label>First Name</label>
+					<input type="text" id="fname" name="firstname" placeholder="Your name.." />
+
+					<label>Last Name</label>
+					<input type="text" id="lname" name="lastname" placeholder="Your last name.."/>
+
+					<label>Country</label>
+					<select id="country" name="country">
+					  <option value="australia">Australia</option>
+					  <option value="canada">Canada</option>
+					  <option value="usa">USA</option>
+					</select>
+				  
+					<input type="submit" value="Submit" />
+				  </form>
+				</div>
+				</div>;
+		}
+	
+		ReactDOM.render(<Login title="Welcome to Demo3" name="Rakesh"/>, document.getElementById('root'));
+	</script>
+</body>
+</html>

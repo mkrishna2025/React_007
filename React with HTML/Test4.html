@@ -1,0 +1,40 @@
+<html>
+<head>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+		
+		function Welcome(props){
+			return <div>
+				{props.title}
+				<table>
+					<thead>
+						<td>Name</td>
+						<td>Age</td>
+						<td>City</td>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Rakesh</td>
+							<td>20</td>
+							<td>HYD</td>
+						</tr>
+						<tr>
+							<td>Neha</td>
+							<td>21</td>
+							<td>HYD</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>;
+		}
+	
+		ReactDOM.render(<Welcome title="Welcome to Students"/>, document.getElementById('root'));
+	</script>
+</body>
+</html>
