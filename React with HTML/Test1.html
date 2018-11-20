@@ -12,8 +12,15 @@
 		function Welcome(props){
 			return <div>{props.title}, {props.name}</div>;
 		}
+		
+		class Welcome2 extends React.Component {
+			render() {
+				return <div>{this.props.title}, {this.props.name}</div>; 
+			}
+		}
+		
 	
-		ReactDOM.render(<Welcome title="Welcome to Demo3" name="Rakesh"/>, document.getElementById('root'));
+		ReactDOM.render(<Welcome2 title="Welcome to Demo3" name="Rakesh"/>, document.getElementById('root'));
 	</script>
 </body>
 </html>

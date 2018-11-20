@@ -131,3 +131,86 @@ TestComponent({ title: 'Welcome to React Demo'})
 
 Important Points
 	Use curly braces for variables with in jsx elements.
+
+
+// Simple React Component
+function Welcome(props){
+	return (
+		<div>{props.title}</div>;
+	);
+}
+
+// ES6 React Component - Create any ES6 class, inherit React.Component class and implement the render method - Return View in render method
+class Welcome extends React.Component {
+	render(){
+		return (
+			<div>{this.props.title}</div>;
+		);
+	}
+}
+
+Person - age
+age is public - p1.age
+age is private - cant access
+age is global - age 
+age is const - age can be accessible but cant update
+age is prop - props.age (function) - this.props.age(Es6)
+age is public inside component - this.age
+age is block level - var age;
+age is state level variable - this.state.age
+
+class Login extends React.Component {
+	constructor(props){
+		super(props);
+		this.state = {
+			a: 1,
+			b: 2,
+			c: 3,
+			d: 4,
+			e: 5
+		}
+	}
+	printE(){
+		console.log(this.state.e);
+	}
+	updateE(){
+		this.setState({ e: 10 }); // 5 value is changed to 10 in screen automatically
+		
+		this.setState({ e: 5}); // no change in e value so screen not refreshes
+	}
+}
+
+
+Backend Request Sample
+loadData() {
+	this.setState({ isFetching: true })
+	
+	// make backend request 
+	var response = maKebackendReq();
+	
+	this.setState({ isFetching: false, data: response.data });
+}
+
+
+.bind is a helper method to pass scope to the method ie use bind() inorder to access this keyword with in the method
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
