@@ -1,0 +1,94 @@
+<html>
+<head>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<style>
+	.studentTable {
+		border: 1px solid;
+	}
+</style>
+
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+		
+		function StudentRow(props){
+			var student = props.student;
+			return <tr>
+						<td>{student.name}</td>
+						<td>{student.age}</td>
+						<td>{student.city}</td>
+					</tr>;
+		}
+		
+		class Welcome extends React.Component {
+			constructor(props){
+				super(props);
+				var students = [
+					{ name: 'Venu', age: 20, city: 'HYD'},
+					{ name: 'Neha', age: 20, city: 'Delhi'},
+					{ name: 'Prakash', age: 22, city: 'HYD'},
+					{ name: 'Deepthi', age: 23 }
+				];
+				this.state = {
+					students: students,
+					students_clone: students
+				}
+			}
+			onChange(event){
+				this.searchStr = event.target.value;
+			}
+			onSearch(){
+				var filteredStudents = [];
+				for(var student of this.state.students){
+					if((student.city && student.city.toLowerCase().indexOf( this.searchStr.toLowerCase()) >= 0) || (student.name && student.name.toLowerCase().indexOf( this.searchStr.toLowerCase()) >= 0) || (student.age && student.age == this.searchStr)) {
+						filteredStudents.push(student);
+					}
+				}
+				this.setState({ students_clone: filteredStudents });
+			}
+			onReset(){
+				this.setState({ students_clone: this.state.students });
+			}
+			render(){
+				var rows = [];
+			
+				for(var student of this.state.students_clone){
+					rows.push(<StudentRow student={student} />);
+				}
+			
+				return <div>
+					{this.props.title}
+					<br/>
+					<input type='text' onChange={this.onChange.bind(this)} />
+					<input type='button' value='Search' onClick={this.onSearch.bind(this)}/>
+					<input type='button' value='Reset' onClick={this.onReset.bind(this)}/>
+					<br/>
+					<br/>
+					<table class="studentTable">
+						<thead>
+							<td>Name</td>
+							<td>Age</td>
+							<td>City</td>
+						</thead>
+						<tbody>
+							{rows}
+						</tbody>
+					</table>
+				</div>;
+			}
+		}
+		
+		function Welcome(props){
+			
+		
+			
+		}
+	
+		ReactDOM.render(<Welcome title="Welcome to Students"/>, document.getElementById('root'));
+	</script>
+</body>
+</html>
