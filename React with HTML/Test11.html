@@ -1,0 +1,84 @@
+<html>
+<head>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+	
+	class TestComponent extends React.Component {
+		constructor(props){
+			super(props);
+			this.state = {
+				students: [
+					{ name: 'Lakshman', age: 20, city: 'Hyderabad' },
+					{ name: 'Preethi', age: 22, city: 'Hyderabad' },
+					{ name: 'Umesh', age: 21, city: 'Delhi' },
+					{ name: 'Vennela', age: 23, city: 'Hyderabad' },
+					{ name: 'Deepak', age: 21, city: 'Delhi' }
+				],
+				departments: [
+					{ name: 'Electronics', count: '30'},
+					{ name: 'Mechanical', count: '40'},
+					{ name: 'Computers', count: '36'}
+				]
+			}
+		}
+		render(){
+			var studentRows = [];
+			
+			for(var student of this.state.students){
+				studentRows.push(<tr>
+								<td>{student.name}</td>
+								<td>{student.age}</td>
+								<td>{student.city}</td>
+							</tr>);
+			}
+		
+			var deptRows = [];
+			
+			for(var department of this.state.departments){
+				deptRows.push(<tr>
+								<td>{department.name}</td>
+								<td>{department.count}</td>
+							</tr>);
+			}
+		
+			return (
+				<div>
+					{this.props.title}
+					<br/>
+					Students
+					<table>
+						<thead>
+							<td>Name</td>
+							<td>Age</td>
+							<td>City</td>
+						</thead>
+						<tbody>
+							{studentRows}
+						</tbody>
+					</table>
+					<br/>
+					Deparments
+					<table>
+						<thead>
+							<td>Name</td>
+							<td>Total Students</td>
+						</thead>
+						<tbody>
+							{deptRows}
+						</tbody>
+					</table>
+				</div>
+			);
+		}
+	}
+	
+	ReactDOM.render(<TestComponent title="Welcome to Demo"/>, document.getElementById('root'));
+	</script>
+</body>
+</html>

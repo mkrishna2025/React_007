@@ -1,0 +1,106 @@
+<html>
+<head>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<style>
+	.table {
+		border: 2px solid
+	}
+	.studentTable{
+		border: 5px solid;
+		background: yellow;
+	}
+</style>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+	
+	class GenericTable extends React.Component{
+		render(){
+			var tdElements = [];
+			for(var column of this.props.columns){
+				tdElements.push(<td>{column.display}</td>);
+			}
+			
+			var rowElements = [];
+			for(var row of this.props.data){
+				var tdElements2 = [];
+				for(var column of this.props.columns){
+					tdElements2.push(<td>{row[column.name]}</td>)
+				}
+				rowElements.push(<tr>
+								{tdElements2}
+							</tr>);
+			}
+			return (
+				<div>
+					{this.props.title}
+					<table class={this.props.class || 'table'}>
+						<thead>
+							{tdElements}
+						</thead>
+						<tbody>
+							{rowElements}
+						</tbody>
+					</table>
+				</div>
+			);
+		}
+	}
+	
+	class TestComponent extends React.Component {
+		constructor(props){
+			super(props);
+			this.state = {
+				studentColumns: [
+							{ name: 'name', display: 'Name'},
+							{ name: 'age', display: 'Age'},
+							{ name: 'city', display: 'City'}
+						],
+				departmentColumns: [
+							{ name: 'name', display: 'Name'},
+							{ name: 'count', display: 'Total Students'}
+						],
+				students: [
+					{ name: 'Lakshman', age: 20, city: 'Hyderabad' },
+					{ name: 'Preethi', age: 22, city: 'Hyderabad' },
+					{ name: 'Umesh', age: 21, city: 'Delhi' },
+					{ name: 'Vennela', age: 23, city: 'Hyderabad' },
+					{ name: 'Deepak', age: 21, city: 'Delhi' }
+				],
+				departments: [
+					{ name: 'Electronics', count: '30'},
+					{ name: 'Mechanical', count: '40'},
+					{ name: 'Computers', count: '36'}
+				]
+			}
+		}
+		render(){
+			return (
+				<div>
+					{this.props.title}
+					<br/>
+					<GenericTable
+						class="studentTable"
+						title="Students"
+						columns={this.state.studentColumns}
+						data={this.state.students}
+					/>
+					<br/>
+					<GenericTable 
+						title="Deparments"
+						columns={this.state.departmentColumns}
+						data={this.state.departments}
+					/>
+				</div>
+			);
+		}
+	}
+	
+	ReactDOM.render(<TestComponent title="Welcome to Demo"/>, document.getElementById('root'));
+	</script>
+</body>
+</html>

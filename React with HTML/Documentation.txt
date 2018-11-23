@@ -194,6 +194,38 @@ loadData() {
 
 .bind is a helper method to pass scope to the method ie use bind() inorder to access this keyword with in the method
 
+var control = document.getElementById('rememberme');
+console.log(control.checked);
+
+
+<input type='text' onChange={this.onUserNameChange}/>
+
+// All Methods in React Components, receive event object as argument. This object we call it as Synthetic Event Object.
+
+// use event.target to get control reference
+
+onUserNameChange(event){
+	var control = event.target;
+	console.log(control.value);
+}
+
+indexOf is helper method of string which index position of passed in input. Use toLowerCase to convert into lower which helps us to ignore case sensitive in comparison
+
+"Hello".toLowerCase().indexOf('h'.toLowerCase())
+
+props - Attributes that component receives
+	- Dont try to update props
+	
+State - Varaiables whose values are updated using setState(), refreshes the elements in screen 
+
+<Student name="Arjun" age="20" />
+
+props = {
+	name: 'Arjun',
+	age: 20
+}
+
+
 
 
 
