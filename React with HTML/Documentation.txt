@@ -225,6 +225,50 @@ props = {
 	age: 20
 }
 
+// Person - Class
+	Age - Field
+if age is variable => var age = ''
+if age is public => this.age
+if age is prop => this.props.age => Prefer Not to Update
+if age is private => cant access
+if age is global => age
+if age is constant => const age = 10; age cant be updated later
+if age is in state => this.state.age => update using setState
+
+
+this.props.age
+
+<TestComponent age="10">
+</TestComponent
+
+<table style="" css="" width="" height="" >
+	<tbody>
+	</tbody>
+</table>
+
+
+this.props.children => component receives inner nodes. The inner nodes passed to the component can be accessible using this.props.children
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

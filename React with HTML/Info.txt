@@ -9,3 +9,6 @@ Test 8 - Applied Search for Test5
 Test 9 - Applied Country to State filter for Test 7
 Test 10 - Search By Name, Age, City
 
+Test 16 - Split Components Header and Footer
+
+

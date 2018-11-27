@@ -1,0 +1,143 @@
+Cloning Object
+
+var obj = {
+	name: 'Arjun',
+	age: 20,
+	city: 'HYD'
+}
+
+var obj2 = obj;
+obj2.age = 30;
+
+console.log(obj.age) => 30 so we cant use = for cloning object
+
+// Cloning object
+
+// Old version
+var obj2 = {}
+for(var key in obj){
+	obj2[key] = obj[key];
+}
+
+// ES6
+var obj3 = { ...obj}
+
+
+// Cloning with adding few more attributes
+// Old version
+var obj2 = {}
+for(var key in obj){
+	obj2[key] = obj[key];
+}
+obj2.age = 25;
+obj2.gender = 'M';
+obj2.address = 'Ameerpet';
+
+// ES6
+var obj3 = { ...obj, age: 25, gender: 'M', address: 'Ameerpet'}
+
+... means spread operator
+
+var a = { x: 1, y: 2 }
+var b = { y: 3, z: 4 }
+var c = { l: 5, m: 6 }
+
+var d = { ...a, ...b, ...c };
+d is {x: 1, y: 3, z: 4, l: 5, m: 6}
+
+var karthik = {
+	name: 'A',
+	age: '20',
+	city: 'HYD',
+	address: 'Ameerpet'
+}
+
+// create a clone of karthik and exclude address
+
+var { address, ...deepak } = karthik;
+var { address, name, ...venkat } = karthik;
+
+var { address: Area, name, ...venkat } = karthik;
+
+
+var obj = {
+	x: 1,
+	y: 2
+}
+
+var x = obj.x;
+var y = obj.y;
+
+var { x, y } = obj;
+
+
+var a = obj.x;
+var b = obj.y;
+
+var { x:a, y:b } = obj;
+
+
+var neha = {
+	name: 'Neha Singh',
+	father: {
+		name: 'Arjun',
+		address: {
+			line1: 'Ameerpet'
+		}
+	}
+}
+
+var father = neha.father;
+var name = father.name;
+
+var { father: { name }} = neha;
+
+var { father: { name: fatherName }} = neha;
+
+// creating variable of name Area, holding value of line1
+var { father: { address: { line1: Area }}} = neha;
+
+var students = [ 'Kavya', 'Naresh', 'Deepa']
+
+// cloning students
+var students_Clone = [ ...students ]
+
+// cloning students and adding Rakesh and Preethi
+var students_Clone2 = [ ...students, 'Rakesh', 'Preethi' ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,43 @@
+Download link - https://nodejs.org/en/download/
+
+Node - Server Side Javascript Framework
+	 - Small Container. All Modules are connected in tree format.
+
+Node + Express => Backend
+Node + Http/Webpack => FrontEnd
+
+Node - npm - node package manager - 
+	npm - adding/updating/deleting modules
+	
+	
+React with Node => Using Node as a platform, we are building React Application.
+
+
+React Website => React - 100, React DOM - 100, Babel - 100
+
+300 functions - 3 mb
+10 functions - 100 kb
+
+
+Advantages of Adding Node in UI Frameworks:
+	1. Download only required functions
+	2. Compress those functions - 100 kb converts to 5 kb
+	3. Merging all files into single file
+	4. Cache is applied - main.1234.js, main.1234.css.. images
+	5. Easier Deployments
+	6. Image Compression
+	7. Copies only required resources
+	
+	
+Creating a project
+	Create Folder 
+	npm init
+	create any file - name it as app.js or server.js
+	Executing - node filename.js 
+	
+	
+	
+	
+	
+	
+	

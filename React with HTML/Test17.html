@@ -1,0 +1,84 @@
+<html>
+<head>
+<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+	<div id="root">
+	</div>
+	<script type="text/babel">
+	
+		class Header extends React.Component {
+			render() {
+				return (
+					<div>Header - Select Options</div>
+				);
+			}
+		}
+		
+		class Footer extends React.Component {
+			render() {
+				return (
+					<div>Footer - @Copyright 2008</div>
+				);
+			}
+		}
+		
+		class LeftSideBar extends React.Component {
+			render() {
+				return (
+					<div>Left Side Bar - Flight, Hotels</div>
+				);
+			}
+		}
+		
+		class RightSideBar extends React.Component {
+			render() {
+				return (
+					<div>Right Side Bar - Flight, Hotels</div>
+				);
+			}
+		}
+		
+		class MasterPage extends React.Component {
+			render(){
+				return (
+					<div>
+						<Header />
+						<LeftSideBar/>
+						<br/>
+						{this.props.children}
+						<br/>
+						<RightSideBar/>
+						<Footer />
+					</div>
+				);
+			}
+		}
+		
+		class FlightScreen extends React.Component {
+			render(){
+				return (
+					<MasterPage>
+						Body - Welcome to Flight Booking
+					</MasterPage>
+				);
+			}
+		}
+		
+		class HotelScreen extends React.Component {
+			render(){
+				return (
+					<MasterPage>
+						Body - Welcome to Hotel Booking
+					</MasterPage>
+				);
+			}
+		}
+		
+	
+		ReactDOM.render(<HotelScreen/>, document.getElementById('root'));
+	</script>
+</body>
+</html>

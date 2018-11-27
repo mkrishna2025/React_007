@@ -783,6 +783,84 @@ var Calculator = function(){
 	}
 }
 
+Prototype => Injecting methods to existing Classes. Use case is to support latest methods/features in old browsers.
+
+
+class Calculator {
+	add(x, y){
+		return x + y;
+	}
+	sub(x, y){
+		return x - y;
+	}
+}
+
+Calculator.prototype.mul = function(x, y) {
+	return x * y;
+}
+
+// 
+sum(10, 20) = 30
+
+var sum = function(x, y) {
+	return x + y;
+}
+
+sum(10)(20) = 30
+
+var sum = function(x){
+	return function(y){
+		return y + x;
+	}
+}
+
+
+var sum = function(x, y) {
+	if(arguments.length == 1){
+		return function(z){
+			return x + z;
+		}
+	} else if(arguments.length == 2){
+		return x + y;
+	}
+}
+
+*
+* *
+* * * 
+
+***
+ **
+  *
+  
+What is React Component ?
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
