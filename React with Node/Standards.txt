@@ -1,0 +1,3 @@
+Use lower case for folders
+	home, login, ui-components
+Prefer to have single component for each file

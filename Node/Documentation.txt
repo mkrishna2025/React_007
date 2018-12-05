@@ -35,6 +35,81 @@ Creating a project
 	create any file - name it as app.js or server.js
 	Executing - node filename.js 
 	
+npm 
+	add => npm install moduleName
+		   npm install moduleName@version
+
+	
+var express = function() {
+	return {
+		get: function(route, callBack) {
+			
+		},
+		post: function() {
+		}
+	}
+}
+
+module.exports = express;
+	
+	
+Express JS
+	https://expressjs.com/
+	https://www.tutorialspoint.com/expressjs/
+	
+Sample
+	https://expressjs.com/en/starter/installing.html
+	https://expressjs.com/en/starter/hello-world.html
+	
+	
+// install A
+	A 
+		B  		C
+		 D E F   G
+	      H
+
+npm install A => H D E F B G C
+
+A - Calculator
+B - Calculator
+
+A B C
+
+Project Structure
+
+	public - html
+	src - index.js, app.js
+		components - reusable
+		containers/views/screens - Pages
+		assets 
+			images
+			fonts
+			
+https://yarnpkg.com/lang/en/docs/install/#windows-stable
+
+npm install react-router-dom --save
+yarn add react-router-dom
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+	
+	
 	
 	
 	

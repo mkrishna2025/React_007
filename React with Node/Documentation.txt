@@ -1,0 +1,244 @@
+
+BoilerPlate - Common Code
+
+BoilerPlate Generator - Script to generate common code/BoilerPlate
+
+	React Generator => create-react-app => Generates sample react project
+
+installing BoilerPlate Generator globally
+	npm install -g create-react-app
+	
+// Generating Project
+   create-react-app projectName
+   create-react-app portal
+   
+// Creating React Project with out BoilerPlate
+   create Folder with Project Name
+   npm init
+   npm install React
+   npm install React-DOM
+   npm install Babel
+   npm install Webpack
+   create html file having empty div root
+   create js file having React Component
+   
+   
+Node: Points to remember
+1. It installs modules inside node_modules folder.
+2. It installs submodules required for that module.
+3. In each module, there should be package.json.
+4. We will never checkin node_modules folder. So when we download a project from source control, we must run command npm install to install all dependencies.
+5. Module can be added using npm install moduleName or add module manually to dependencies object of package.json and run npm install command.
+6. save is attribute to be used to insert module into dependencies section of package.json
+	npm install react --save
+7. save-dev is attribute to be used to insert module into devDependencies section of package.json. These modules I need in development stage only.
+	npm install jest --save-dev
+   
+
+React-Scripts
+	Will take control of basic packages(other than react and react dom) required for running React Application
+	
+	
+ES5 
+var React = require('Rect');
+
+ES6
+import React from 'React';
+
+// single 
+export default ComponentName;
+import AnyName from '';
+
+
+export A;
+export B;
+import { A, B } from '';
+
+
+A B C D
+ A - default
+export default A;
+export B;
+export C;
+export D; 
+
+import Aref, { B, C, D }
+
+
+Routing
+	React-Router-DOM
+	
+npm install react-router-dom --save
+yarn react-router-dom
+
+npm run start
+yarn start
+
+
+
+Project Structure
+
+	public - html
+	src - index.js, app.js
+		components - reusable
+		containers/views/screens - Pages
+		assets 
+			images
+			fonts
+
+Flow => Starting point is index.js and from it we are calling actual render logic present in App.js
+
+Converting HTML Project to React Project
+1. Create react project using create-react-app
+2. install react-router-dom
+3. Add BrowserRouter as parent
+4. Add Routes and project folders/structure
+5. Create Home component and add the html in render method
+6. Make sure all jsx tags are closed
+7. Adding Styles -
+	1. Directly copy all styles to public folder
+	2. Add inside assets folder and include in project manually
+
+
+React-Router-DOM => javascript history
+
+BrowserRouter => /login /home
+HashRouter => #login #home
+
+history.push(newRoute)
+history.push('home')
+
+React 
+	this.props.history.push('home')
+
+Navigation Params
+	Params
+	Query/Search string
+	
+1.Params
+// passing params => 
+Adv:
+	for security purposes, we can use this as params are not shown in query string
+Dis:
+	Refresh will not work
+	
+history.push({
+	pathname: 'home',
+	params: { username: 'Karthik', age: 20 }
+});
+
+var params = this.props.location.params;
+console.log(params.username + ', with age ' + params.age);
+
+2. Query/Search string
+// passing as search params => ie in query string
+Adv:
+	supports refresh feature
+
+https://github.com/mkrishna2025/Routing
+history.push({
+	pathname: 'home',
+	search: 'username=Karthik&age=20',
+});
+const queryParams = new URLSearchParams(this.props.location.search);
+console.log(queryParams.get('username') + ', with age ' + queryParams.get('age'));
+
+anchor tag is used to pass values in querystring
+Link tag supports both querystring and hiddenparams
+
+<a href='google.com?username=karthik'>Google</a>
+
+<Link to={{
+          pathname: '/google.com',
+          search: 'username=karthik',
+          params: { secretAccessKey: '123456' }
+        }}> Google </Link>
+
+Asynchronous Process => Process which runs in parallel to main process/thread
+
+Promise: An approach to handle asynchonous operation
+
+TakeHelp({ name: 'Arjun', task: 'Collect 10k from Bank'}).then( response => {})
+.catch(error => {})
+
+
+function TakeHelp(options){
+	return new Promise(resolve, reject){
+		if(task is successful){
+			resolve();
+		} else {
+			reject();
+		}
+	}
+}
+
+var Promise = function( resolve, reject){
+	return {
+		then: function(callBack){
+		}, 
+		catch(function(callBack2)){
+		}
+	}
+}
+
+// Connecting to Bluetooth
+Connect({
+	pairId: '123'
+}).then(response => {
+	// Transfer Songs
+}).catch(error => {
+	// Display Error
+})
+
+orderFood({
+	restaurant: 'Paradise',
+	item: 'Biriyani'
+}).then(response => {
+	this.setState({ message: 'Order Accepted'})
+}).then(response => {
+	this.setState({ message: 'Order Ready'})
+}).then(response => {
+	this.setState({ message: 'Order Pickup'})
+}).then(response => {
+	this.setState({ message: 'Order Deliver'})
+}).catch(error => {
+	this.setState({ message: 'Order Failed'})
+});
+
+
+1. Order Accept
+2. Order Ready
+3. Order Pickup
+4. Order Deliver
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+	
+	
+
+Code Editors
+
+https://code.visualstudio.com/download
