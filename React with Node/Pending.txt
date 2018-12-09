@@ -1,17 +1,15 @@
 Pending
 	Add inside assets folder and include in project manually
 	Eject
+	TypeScript
 	Life Cycle
-	Promise - Backend API
-	Routing - Passing Params
+	Backend API
 	Material UI
 	Sample tables
 	Authentication
 	Authorization
 	Gmail Authentication
-	Google Maps
 	Example of callback functions
-	Higher Order Components
 	How to pick up suitable Module from existing modules
 	Redux - Basic Example
 	

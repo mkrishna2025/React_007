@@ -1,0 +1,30 @@
+<html>
+<head>
+	<script type="text/javascript">
+		
+		function createElement(){
+			var element = document.createElement('input');
+			return element;
+		}
+		
+		function createButton(options){
+			var button = createElement();
+			button.setAttribute('type', 'button');
+			button.setAttribute('value', options.text);
+			return button;
+		}
+		
+		function afterRender(){
+			var container = document.getElementById('root');
+			
+			var button = createButton({ text: 'Login'});
+			
+			container.appendChild(button);
+		}
+	</script>
+</head>
+<body onLoad="afterRender()">
+	<div id="root">
+	</div>
+</body>
+</html>
