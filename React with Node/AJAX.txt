@@ -1,0 +1,74 @@
+var formData = new FormData();
+formData.append('username', this.username);
+formData.append('password', this.password);
+
+fetch('http://trainingkit.azurewebsites.net/api/Users/CheckUserExists',{
+  method:'POST',
+  body: formData
+}).then(response => {
+	return response.json();
+})
+.then(response => {
+  if(response.data){
+	swal("Alert","Login Success");
+	this.props.history.push('home');
+  } else {
+	swal("Alert", 'Invalid Credentials', "error");
+  }
+})
+.catch(error => {
+  alert(error);
+});
+
+
+export default class App extends React.Component {
+  constructor(props){
+      super(props);
+      this.state = {
+          data: [],
+          isFetching: false
+      }
+  }
+  componentDidMount(){
+      this.setState({ isFetching: true });
+      fetch('http://trainingkit.azurewebsites.net/api/Users/GetAttendees')
+      .then(response => {
+        if(response.status == 200){
+            return response.json();
+        }
+      })
+      .then(response => {
+          if(response.success){
+            this.setState({ data: response.data, isFetching: false });
+          } else{
+              alert('Data Failed');
+          }
+      })
+      .catch(error => {
+        alert(error);
+      })
+  }
+  render(){
+    return (
+        <div>
+            <div>Welcome to Attendees</div>
+            <table>
+                <thead>
+                    <td>Name</td>
+                    <td>Age</td>
+                    <td>Department</td>
+                </thead>
+                <tbody>
+                { 
+                    this.state.data.map(item => <tr>
+                        <td>{item.Name}</td>
+                        <td>{item.Age}</td>
+                        <td>{item.Department}</td>
+                    </tr>)
+                }
+                </tbody>
+            </table>
+        </div>
+    );
+  }
+}

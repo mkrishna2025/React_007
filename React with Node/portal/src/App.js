@@ -10,6 +10,7 @@ import MaterialScreen from './containers/material';
 import MaterialScreen2 from './containers/material/demo2';
 import MaterialScreen3 from './containers/material/demo3';
 import AntScreen from './containers/ant';
+import ReactTablesScreen from './containers/reacttable';
 
 class App extends React.Component {
     render() {
@@ -23,6 +24,7 @@ class App extends React.Component {
                 <Route path="/materialdemo2" component={MaterialScreen2} />
                 <Route path="/materialdemo3" component={MaterialScreen3} />
                 <Route path="/ant" component={AntScreen} />
+                <Route path="/reacttable" component={ReactTablesScreen} />
                 <Route path="*" component={UnImplementedScreen} />
             </Switch>
         );

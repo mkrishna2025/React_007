@@ -234,6 +234,31 @@ https://ant.design/
 
 
 
+Life Cycle
+	constructor - default initialization
+	componentWillMount - registering services/channel/connecting bluetooth, adding event listeners
+	render - Rendering the view/ contains actual view
+	componentDidMount - Backend Calls
+	componentWillUnMount - deregistering services/channel/connecting bluetooth, removing event listeners
+	
+	componentWillReceiveProps -  
+	
+	
+// 99% we dont use it projects unless it is required to change original behaviour of refreshing the screen on state update
+shouldComponentUpdate(props, state) {
+	// state - a b c d e 
+	
+	if(state.a != this.state.a){
+		return true;
+	} else {
+		return false;
+	}
+}
+
+componentDidUpdate - Dont use componentDidMount update
+componentWillMount - Dont call backend API's
+componentWillMount - Dont call setState method
+
 
 
 

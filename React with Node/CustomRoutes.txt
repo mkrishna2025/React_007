@@ -1,0 +1,96 @@
+function customAdd(x,y){
+	return add(x,y);
+}
+
+customAdd(10, 20);
+
+const customAdd = (x,y) => add(x,y)
+
+const CustomRoute = (props) => <Route {...props} />
+
+const CustomRoute = ({component: DComponent, ...rest}) => <Route {...rest} component={DComponent}/>
+
+const CustomRoute = ({component: DComponent, ...rest}) => <Route {...rest} render=(props) => <DComponent {...props} /> />
+
+const MasterRoute = ({component: DComponent, ...rest}) => <Route {...rest} render=(props) => <MasterPage {...props}><DComponent {...props} /></MasterPage> />
+
+function MasterPage(props){
+	var { component: DComponent, ...rest } = props;
+	return <Route {...rest} render=(props) => <MasterPage {...props}><DComponent {...props} /></MasterPage> />;
+}
+
+
+
+https://github.com/mkrishna2025/REACT_002/blob/master/React%20With%20Node/feedbacksystem/src/App.js
+
+const MasterPageRoute = ({component: DynamicComponent, ...rest}) => 
+    <Route {...rest} render={props =>{
+      return <MasterPage {...props}><DynamicComponent {...props} /></MasterPage>
+  }}/>
+
+const MasterPageAuthenticatedRoute = ({component: DynamicComponent, ...rest}) => 
+    <Route {...rest} render={props =>{
+      if(sessionStorage.getItem('isLoggedIn') == "true"){
+        return <MasterPage {...props}><DynamicComponent {...props} /></MasterPage>
+      } else {
+        return <Redirect to="/" />
+      }
+  }}/>
+
+const AuthenticatedRoute = ({component: DynamicComponent, ...rest}) => 
+  <Route {...rest} render={props =>{
+    if(sessionStorage.getItem('isLoggedIn') == "true"){
+      return <DynamicComponent {...props} />
+    } else {
+      return <Redirect to="/" />
+    }
+}}/>
+
+const AuthenticatedAuthorizedRoute = ({component: DynamicComponent, ...rest}) => 
+  <Route {...rest} render={props =>{
+    if(sessionStorage.getItem('isLoggedIn') == "true"){
+      if(sessionStorage.getItem('role') == "Admin"){
+        return <DynamicComponent {...props} />
+      } else {
+        return <Redirect to="/unAuthorized" />
+      }
+    } else {
+      return <Redirect to="/" />
+    }
+}}/>
+
+const MasterPageUnthorizedRoute = ({component: DynamicComponent, ...rest}) => 
+  <Route {...rest} render={props =>{
+    if(sessionStorage.getItem('isLoggedIn') == "true"){
+      if(sessionStorage.getItem('role') == "Admin"){
+        return <MasterPage {...props}>
+                <DynamicComponent {...props} />
+              </MasterPage>
+      } else {
+        return <Redirect to="/unAuthorized" />
+      }
+    } else {
+      return <Redirect to="/" />
+    }
+}}/>
+
+class App2 extends Component {
+  render() {
+    return (
+      <Switch>
+        <Route exact path="/" component={Login} />
+        <Route exact path="/form" component={CheckBoxSample} />
+        <MasterPageAuthenticatedRoute path="/home" component={Home} />
+        <AuthenticatedRoute path="/attendees" component={Attendees}/>
+        <MasterPageUnthorizedRoute exact path="/students" component={Students}/>
+        <MasterPageUnthorizedRoute exact path="/students/detail" component={StudentDetail}/>
+        <AuthenticatedRoute path="/unAuthorized" component={UnAuthorized} />
+        <AuthenticatedAuthorizedRoute path="/admin" component={Admin} />
+        <MasterPageAuthenticatedRoute path="/contactus" component={ContactUs} />
+        <MasterPageAuthenticatedRoute exact path="/map" component={Map} />
+        <MasterPageAuthenticatedRoute exact path="/branches" component={Branches} />
+        <Route path="/*" component={NotImplemented} />
+      </Switch>
+    );
+  }
+}

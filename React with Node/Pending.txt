@@ -2,16 +2,16 @@ Pending
 	Add inside assets folder and include in project manually
 	Eject
 	TypeScript
-	Life Cycle
 	Backend API
-	Material UI
-	Sample tables
-	Authentication
-	Authorization
-	Gmail Authentication
 	Example of callback functions
-	How to pick up suitable Module from existing modules
-	Redux - Basic Example
+	
+	Thursday
+		Authentication
+		Authorization
+		Gmail Authentication
+	
+	
+	Wednesday Redux - Basic Example
 	
 	
 	

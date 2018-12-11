@@ -5,6 +5,12 @@ export default class Login extends Component {
     onLogin(){
         //this.props.history.push('home');
 
+        localStorage.setItem('role', 'Admin');
+        sessionStorage.setItem('isAuthorized', 'true');
+
+       
+        //  localStorage.clear();
+
         this.props.history.push({
             pathname: 'home',
             params: { username: this.username}, // params - hidden variables
