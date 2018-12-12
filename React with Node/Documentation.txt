@@ -259,6 +259,35 @@ componentDidUpdate - Dont use componentDidMount update
 componentWillMount - Dont call backend API's
 componentWillMount - Dont call setState method
 
+API Requests
+	get - retrieve - All, retrieveByPk, retrieveByFk
+	post - inserting, updating, deleting
+
+http://trainingkit.azurewebsites.net/api/Users/GetAttendees
+
+
+http://trainingkit.azurewebsites.net/api/Users/GetAttendees/1
+http://trainingkit.azurewebsites.net/api/Users/GetAttendees/2
+
+http://trainingkit.azurewebsites.net/api/Users/GetAttendees?id=1
+http://trainingkit.azurewebsites.net/api/Users/GetAttendees?age>20
+http://trainingkit.azurewebsites.net/api/Users/GetAttendees?city='Hyderabad'
+
+fetch(url, options)
+
+https://auth0.com/
+
+<Route path='/home' component={HomeScreen} />
+
+
+<Route path='/home' render=(props) => <HomeScreen {...props} />
+
+<Route path='/home' render=(props) => <MasterPage><HomeScreen isLoggedIn={true} {...props} /></MasterPage>
+ 
+
+
+1. Ability to pass more attributes
+2. Adding MasterPage
 
 
 
@@ -268,11 +297,13 @@ componentWillMount - Dont call setState method
 
 
 
-	
 
 
-	
-	
+
+
+
+
+
 
 Code Editors
 

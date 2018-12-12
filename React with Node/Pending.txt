@@ -1,18 +1,13 @@
 Pending
-	Add inside assets folder and include in project manually
-	Eject
-	TypeScript
-	Backend API
-	Example of callback functions
+	
+	Wednesday Redux - Basic Example
 	
 	Thursday
 		Authentication
 		Authorization
-		Gmail Authentication
-	
-	
-	Wednesday Redux - Basic Example
-	
+		Eject
+		TypeScript
+		Example of callback functions
 	
 	
 	

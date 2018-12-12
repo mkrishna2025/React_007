@@ -21,6 +21,9 @@ export default class Home extends Component {
             <input type='button' value='Back' onClick={() => {
                 this.props.history.goBack()
             }} />
+            <input type='button' value='Attendee' onClick={() => {
+                this.props.history.push('attendee')
+            }}  />
         </div>
         ) 
     }
